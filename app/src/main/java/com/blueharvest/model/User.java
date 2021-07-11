@@ -1,6 +1,5 @@
 package com.blueharvest.model;
 
-import com.blueharvest.model.gender.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,8 +7,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,31 +16,33 @@ import java.util.Date;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter @Setter
+@Getter
+@Setter
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="user_id")
     private Long userID;
 
-    @Column(name = "givenname")
-    private String givenName;
+    @Column(name = "user_id_name")
+    private String userIDName;
 
-    @Column(name="familyname")
     private String familyName;
 
-    @Column(name="middlename")
-    private String middleName;
+    private String givenName;
 
-    private String salutations;
+    private String gender;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "dateofbirth")
-    private Date dateOfBirth;
+    private Date birthDate;
 
-    @Type(type="text")
-    private String description;
+    private String homeCity;
 
-    @Column(columnDefinition = "ENUM('male', 'female', 'transfemale', 'transmale', 'nonbinary')")
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private String profession;
+
+    @Type(type = "text")
+    private String summary;
+
+    @Column(name = "billing_id")
+    private Long billingID;
 }

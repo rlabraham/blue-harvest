@@ -5,8 +5,9 @@ spring:
       ddl-auto: validate
   datasource:
     url: jdbc:mysql://localhost:3306/blueharvest
-    username: root
-    password: blueharvest
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:blueharvest}
+
 
 server:
   port: 8080

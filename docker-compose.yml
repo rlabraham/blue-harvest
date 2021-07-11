@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mysql-db:
     container_name: blue_harvest_db
-    image: richardleeabraham/blue_harvest_db:latest
+    image: richardleeabraham/blue_harvest_db:1.0
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     expose:
